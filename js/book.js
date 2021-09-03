@@ -1,13 +1,9 @@
+
+// search-input
 const searchBook = () => {
     const searchField = document.getElementById('search-field')
     const errorMessage = document.getElementById('error-msg')
     const searchText = searchField.value
-
-    console.log(searchText)
-
-    if (searchText == 0) {
-        errorMessage.innerText = 'search something to display'
-    }
 
     searchField.value = '';
 
@@ -17,16 +13,20 @@ const searchBook = () => {
         .then(res => res.json())
         .then(data => displayBooks(data.docs));
 
+
 }
 
+
+
+// show result
 const displayBooks = docs => {
     const searchBook = document.getElementById('search-result')
+
     searchBook.textContent = '';
-
-
+    // bookist
 
     docs.forEach(doc => {
-        console.log(doc);
+
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -36,7 +36,7 @@ const displayBooks = docs => {
                 <img src=" https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg"  class="card-img-top" alt="...">
                     <h5 class="card-title">${doc.title}</h5>
                     <p class="card-text">${doc.author_name}</p>
-                    <p class="card-text">${doc.first_publish_year}'</p>
+                    <p class="card-text">${doc.first_publish_year}</p>
                     <p class="card-text">publisher:${doc.publisher.slice(0, 5)} </p>
                     
                 </div>
@@ -49,14 +49,6 @@ const displayBooks = docs => {
 
     })
 
-    // const foundData = document.getElementById('found-data')
-    // foundData.textContent = '';
-
-    // const div = document.createElement('div');
-    // div.innerHTML = `
-    // <h4>Search Result:${docs.numFound}</h4>
-    // `;
-    // foundData.appendChild(div)
 }
 
 
