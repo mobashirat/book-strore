@@ -2,7 +2,7 @@
 // search-input
 const searchBook = () => {
     const searchField = document.getElementById('search-field')
-    const errorMessage = document.getElementById('error-msg')
+
     const searchText = searchField.value
 
     searchField.value = '';
@@ -16,16 +16,31 @@ const searchBook = () => {
 
 }
 
-
-
 // show result
+const searchTotal = document.getElementById('total-result')
+
 const displayBooks = docs => {
+
+    searchTotal.innerHTML = `<h4>Search Result Found:${docs.length}</h4>`;
+
     const searchBook = document.getElementById('search-result')
+    const errorMessage = document.getElementById('error')
+
 
     searchBook.textContent = '';
-    // bookist
 
-    docs.forEach(doc => {
+    if (docs.offset = 'null') {
+        errorMessage.innerText = 'No result found'
+    }
+
+    // bookist
+    docs?.forEach(doc => {
+
+        // clear error message
+        if (docs) {
+            errorMessage.innerText = ''
+        }
+        // show books
 
         const div = document.createElement('div');
         div.classList.add('col');
@@ -42,11 +57,6 @@ const displayBooks = docs => {
                 </div>
             </div>`;
         searchBook.appendChild(div)
-
-
-
-
-
     })
 
 }
