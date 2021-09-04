@@ -45,14 +45,14 @@ const displayBooks = docs => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card h-100">
+        <div class="card h-100 p-2">
                
-                <div class="card-body">
+                <div class="card-body bg-dark">
                 <img src=" https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg"  class="card-img-top" alt="...">
-                    <h5 class="card-title">${doc.title}</h5>
-                    <p class="card-text">${doc.author_name}</p>
-                    <p class="card-text">${doc.first_publish_year}</p>
-                    <p class="card-text">publisher:${doc.publisher.slice(0, 5)} </p>
+                    <h5 class="card-title text-light">${doc.title}</h5>
+                    <p class="card-text text-light">${doc.author_name}</p>
+                    <p class="card-text text-light">${doc.first_publish_year}</p>
+                    <p class="card-text text-light">publisher:${doc.publisher.slice(0, 5)} </p>
                     
                 </div>
             </div>`;
